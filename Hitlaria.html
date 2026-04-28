@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+    <title>Hitlaria</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Galeria Divina</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: radial-gradient(circle at top, #ffffff, #f3f3f3);
+    color: #444;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 56px;
+    margin: 30px 0 10px;
+    letter-spacing: 5px;
+    color: #c9b46b;
+    text-shadow: 0 2px 8px rgba(201,180,107,0.3);
+  }
+
+  h2 {
+    margin: 25px 0;
+    font-style: italic;
+    color: #888;
+  }
+
+  .faixa {
+    height: 14px;
+    background: repeating-linear-gradient(
+      90deg,
+      #d4c28a 0px,
+      #d4c28a 10px,
+      #fff 10px,
+      #fff 20px
+    );
+    margin-bottom: 25px;
+  }
+
+  .templo {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .coluna {
+    width: 50px;
+    background: linear-gradient(to bottom, #ffffff, #ececec);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.08),
+                0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .coluna::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(to bottom, #fdfdfd, #eaeaea);
+    border-radius: 8px;
+  }
+
+  .conteudo {
+    max-width: 1000px;
+    position: relative;
+  }
+
+  .galeria {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+  }
+
+  .galeria::-webkit-scrollbar {
+    display: none;
+  }
+
+  .galeria img {
+    min-width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 6px solid #f5f0dc;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  }
+
+  .galeria img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid #e0e0e0;
+    font-size: 22px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  .btn.left { left: -25px; }
+  .btn.right { right: -25px; }
+
+  .luz {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9), transparent);
+    filter: blur(40px);
+    z-index: -1;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.96);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 10px solid #f5f0dc;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+
+  .link-final {
+    color: #c9b46b;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .link-final:hover {
+    color: #a8904f;
+    text-shadow: 0 0 10px rgba(201,180,107,0.5);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="luz"></div>
+
+<h1>GALERIA</h1>
+<div class="faixa"></div>
+
+<div class="templo">
+  <div class="coluna"></div>
+
+  <div class="conteudo">
+
+    <button class="btn left" onclick="scrollGaleria(-300)">❮</button>
+    <button class="btn right" onclick="scrollGaleria(300)">❯</button>
+
+    <div class="galeria" id="galeria">
+      <img src="img 1.jpeg" onclick="abrirImagem(this)">
+      <img src="logo230.jpeg" onclick="abrirImagem(this)">
+      <img src="loira.jpeg" onclick="abrirImagem(this)">
+      <img src="soldado.jpeg" onclick="abrirImagem(this)">
+      <img src="WhatsApp Image 2026-02-02 at 14.48.36.jpeg" onclick="abrirImagem(this)">
+      <img src="WhatsApp Image 2026-02-02 at 14.48.38.jpeg" onclick="abrirImagem(this)">
+      <img src="WhatsApp Image 2026-02-11 at 11.09.34.jpeg" onclick="abrirImagxem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+      <img src="" onclick="abrirImagem(this)">
+    </div>
+
+  </div>
+
+  <div class="coluna"></div>
+</div>
+
+<div class="faixa"></div>
+
+<h2>Aproveite a exposição</h2>
+
+<h2>
+  <a href="hitlariasecret.html" target="_blank" class="link-final">
+    Explorar mais obras
+  </a>
+</h2>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="fecharImagem()">
+  <img id="imgGrande">
+</div>
+
+<script>
+  function scrollGaleria(valor) {
+    document.getElementById('galeria').scrollBy({
+      left: valor,
+      behavior: 'smooth'
+    });
+  }
+
+  function abrirImagem(img) {
+    document.getElementById('lightbox').style.display = 'flex';
+    document.getElementById('imgGrande').src = img.src;
+  }
+
+  function fecharImagem() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
+</body>
+</html>
