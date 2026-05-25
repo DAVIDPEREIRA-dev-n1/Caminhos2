@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruno Moreira – Chefe de Estado</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="favicon2.ico" type="image/x-icon"> 
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: #cc0000;
+  }
+
+  .hero-flag {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-flag::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -10%;
+    width: 55%;
+    height: 100%;
+    background: #cc0000;
+    transform: skewX(-8deg);
+    opacity: 0.08;
+  }
+
+  .hero-flag::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    border: 3px solid #cc0000;
+    transform: rotate(-15deg);
+    opacity: 0.06;
+  }
+
+  .big-num {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(200px, 40vw, 420px);
+    color: #cc0000;
+    opacity: 0.04;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    margin-bottom: 2rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 120px);
+    line-height: 0.9;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name span {
+    color: #cc0000;
+    display: block;
+  }
+
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: #cc0000;
+    margin: 1.5rem auto;
+  }
+
+  .hero-slogan {
+    font-size: clamp(14px, 2.5vw, 20px);
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ccc;
+    line-height: 1.5;
+    text-transform: uppercase;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-slogan em {
+    color: #fff;
+    font-style: normal;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 14px 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .cta-btn:hover { background: #aa0000; transform: scale(1.03); }
+
+  /* SCROLL ARROW */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.5;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; }
+  .scroll-arrow {
+    width: 20px; height: 20px;
+    border-right: 2px solid #cc0000;
+    border-bottom: 2px solid #cc0000;
+    transform: rotate(45deg);
+    animation: bounce 1.4s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 2rem;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #cc0000;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 7vw, 64px);
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SOBRE MIM */
+  .sobre {
+    background: #111;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #cc0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: #fff;
+    border: 4px solid #fff;
+    letter-spacing: 2px;
+  }
+
+  .avatar-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .avatar-role {
+    font-size: 13px;
+    color: #cc0000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .sobre-text {
+    color: #bbb;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .sobre-text strong { color: #fff; }
+
+  /* PROPOSTAS */
+  .propostas { background: #0d0d0d; }
+
+  .propostas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: #222;
+    border: 1px solid #222;
+    margin-top: 2rem;
+  }
+
+  .proposta-card {
+    background: #111;
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .proposta-card:hover { background: #161616; }
+
+  .proposta-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: #cc0000;
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .proposta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .proposta-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .proposta-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: #cc0000;
+    transition: width 0.4s;
+  }
+
+  .proposta-card:hover .proposta-bar { width: 100%; }
+
+  /* MANIFESTO */
+  .manifesto {
+    background: #cc0000;
+    text-align: center;
+    padding: 80px 2rem;
+  }
+
+  .manifesto-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 6vw, 56px);
+    color: #fff;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    letter-spacing: 1px;
+  }
+
+  .manifesto-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    text-align: center;
+    padding: 2rem;
+    border-top: 3px solid #cc0000;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  footer strong { color: #cc0000; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .sobre-grid { grid-template-columns: 1fr; text-align: center; }
+    .avatar-block { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-flag"></div>
+  <div class="big-num">1</div>
+
+  <div class="hero-content">
+    <div class="badge">Candidato a Delegado de Turma</div>
+
+    <h1 class="hero-name">
+      Bruno<span>Moreira</span>
+    </h1>
+
+    <div class="divider"></div>
+
+    <p class="hero-slogan">
+      <em>"Deus, Pátria, Familia"</em>
+    </p>
+
+    <a href="#propostas" class="cta-btn">Ver Propostas</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- SOBRE MIM -->
+<section class="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="avatar-block">
+        <img src="14-joao-ferreira-1934-portuguese-citizens-vote-poster-printed.ppm_.png" alt="Bruno Moreira" style="width:160px;height:160px;border-radius:50%;border:4px solid #fff;object-fit:cover;">
+        <div class="avatar-name">Bruno Moreira</div>
+        <div class="avatar-role">Candidato a Führer da Turma</div>
+      </div>
+      <div>
+        <p class="section-label">Quem sou</p>
+        <h2 class="section-title">Sobre Mim</h2>
+        <p class="sobre-text">
+          Sou o <strong>Bruno Moreira</strong>, aluno do ensino secundário com idiologias nacionalistas.<br><br>
+          Acredito que um bom chefe de estado é aquele que <strong>ouve todos</strong>, age com responsabilidade e representa a Pátria com seriedade e dedicação. É isso que me comprometo a fazer apartir do momento em que elegem.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSTAS -->
+<section class="propostas" id="propostas">
+  <div class="section-inner">
+    <p class="section-label">O que proponho</p>
+    <h2 class="section-title">As Minhas Propostas</h2>
+
+    <div class="propostas-grid">
+      <div class="proposta-card">
+        <div class="proposta-num">01</div>
+        <div class="proposta-title">Respeito</div>
+        <p class="proposta-desc">Tratar-me com respeito e dignidade, independentemente dos acontecimentos ocorridos ao longo do ano letivo.</p>
+        <div class="proposta-bar"></div>
+      </div>
+      <div class="proposta-card">
+        <div class="proposta-num">02</div>
+        <div class="proposta-title">Entreajudas</div>
+        <p class="proposta-desc">Promover um ambiente de apoio mútuo, onde os alunos possam ajudar-se reciprocamente no processo de aprendizagem, e acima de tudo ajudar o Das Führer.</p>
+        <div class="proposta-bar"></div>
+      </div>
+      <div class="proposta-card">
+        <div class="proposta-num">03</div>
+        <div class="proposta-title">Recuperação de identidade.</div>
+        <p class="proposta-desc">Recuperar a identidade Nacional e promover o orgulho pela nossa cultura e tradições.</p>
+        <div class="proposta-bar"></div>
+      </div>
+      <div class="proposta-card">
+        <div class="proposta-num">04</div>
+        <div class="proposta-title">Chefe de estado</div>
+        <p class="proposta-desc">Garantir a proteção de todos os alunos, representando-os com integridade e profissionalismo.</p>
+        <div class="proposta-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-quote">
+    "Deus, Pátria, Familia."
+  </div>
+  <p class="manifesto-sub">Com estes valores, acredito que podemos construir uma turma mais forte, unida e respeitosa. Conto com o vosso voto para juntos fazermos a diferença!</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Campanha eleitoral &nbsp;|&nbsp; <strong>Bruno Moreira</strong> &nbsp;|&nbsp; Führer de Turma &nbsp;|&nbsp; Portugual</p>
+</footer>
+
+<script>
+  document.querySelector('.cta-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('propostas').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
